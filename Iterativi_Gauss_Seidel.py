@@ -1,6 +1,6 @@
 import numpy as np
 
-from calc_matr_triang_Lower import triang_inf
+from Diretti_triang_Lower import triang_inf
 
 
 def gauss_seidel(A, b, x0, tol, nmax):
