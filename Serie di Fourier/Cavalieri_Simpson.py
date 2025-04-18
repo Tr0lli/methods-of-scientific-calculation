@@ -17,7 +17,8 @@ def cavalieri_simpson(a, b, f):
     I = ((b - a) / 6) * (f(a) + 4 * f((a + b) / 2) + f(b))
     return I
 
-# Esempio di utilizzo:
+"""
+ Esempio di utilizzo:
 def my_function(x):
     return x**2
 
@@ -26,3 +27,4 @@ upper_bound = 2
 
 integral_approximation = cavalieri_simpson(lower_bound, upper_bound, my_function)
 print(f"L'approssimazione dell'integrale è: {integral_approximation}")
+"""
