@@ -6,18 +6,18 @@ import matplotlib.pyplot as plt
 from Fourier_series import fourier_series
 
 # Parametri
-n = 100  # Ordine della serie di Fourier
+n = 10 # Ordine della serie di Fourier
 # Definizione della funzione e del periodo
-f = lambda x: np.sin(x)
-p = 2 * np.pi
+# f = lambda x: np.sin(x)
+# p = 2 * np.pi
 # f = lambda x: x * (1 - x)
 # p = 1
-#f = lambda x: x
-#p = 1
+# f = lambda x: x
+# p = 1
 # f = lambda x: x * (1 - x) * np.exp(10 * x)
 # p = 1
-# f = lambda x: np.sign(x - 0.5)
-# p = 1
+f = lambda x: np.sign(x - 0.5)
+p = 1
 
 # Calcolo dei coefficienti della serie di Fourier
 coefficients = fourier_series(f, p, n) #, use_quad=True Puoi cambiare use_quad=False per usare Cavalieri-Simpson composito
@@ -49,5 +49,5 @@ plt.ylabel('y')
 plt.title('Confronto tra funzione e la sua serie di Fourier troncata')
 plt.legend()
 plt.grid(True)
-plt.savefig('fourier_comparison.png')  # Salva la figura come immagine
+plt.savefig('fourier_comparison_xsign(x-0.5).png')  # Salva la figura come immagine
 # plt.show() # Commenta o rimuovi plt.show() quando usi il backend 'Agg'
