@@ -26,7 +26,7 @@ def cavalieri_simpson_composito(a, b, f, N):
 
     return I
 
-# Esempio di utilizzo (richiede la definizione di cavalieri_simpson come nel precedente esempio):
+""" Esempio di utilizzo (richiede la definizione di cavalieri_simpson come nel precedente esempio):
 def my_function(x):
     return x**2
 
@@ -36,3 +36,4 @@ num_subintervals = 4
 
 integral_approximation_composito = cavalieri_simpson_composito(lower_bound, upper_bound, my_function, num_subintervals)
 print(f"L'approssimazione dell'integrale con la regola composita è: {integral_approximation_composito}")
+"""

@@ -16,21 +16,23 @@ def fourier_series(f, p, n):
     coefficients = np.zeros(1 + 2 * n)
 
     # Coefficiente della componente costante (a0)
-    integral_const, _ = quad(f, 0, p, limlst=100)
-    coefficients[0] = (1/p) * integral_const
-    # coefficients[0] = (1/p) * cavalieri_simpson_composito(0, p, f, 50)
+    # integral_const, _ = quad(f, 0, p, limlst=100)
+    # coefficients[0] = (1/p) * integral_const
+    coefficients[0] = (1/p) * cavalieri_simpson_composito(0, p, f, 50)
 
     # Coefficienti delle funzioni coseno (a_k)
     for j in range(1, n + 1):
         f_cos = lambda x: f(x) * np.cos(j * (2 * np.pi / p) * x)
-        integral_cos, _ = quad(f_cos, 0, p, limlst=100)
-        coefficients[j] = (2 / p) * integral_cos
+        # integral_cos, _ = quad(f_cos, 0, p, limlst=100)
+        # coefficients[j] = (2 / p) * integral_cos
+        coefficients[j] = (2/p) * cavalieri_simpson_composito(0, p, f_cos, 10*j)
 
-    # Coefficienti delle funzioni seno (b_k)
+# Coefficienti delle funzioni seno (b_k)
     for j in range(1, n + 1):
         f_sin = lambda x: f(x) * np.sin(j * (2 * np.pi / p) * x)
-        integral_sin, _ = quad(f_sin, 0, p, limlst=100)
-        coefficients[n + j] = (2 / p) * integral_sin
+        # integral_sin, _ = quad(f_sin, 0, p, limlst=100)
+        # coefficients[n + j] = (2 / p) * integral_sin
+        coefficients[n + j] = (2/p) * cavalieri_simpson_composito(0, p, f_sin, 10*j)
 
     return coefficients
 
