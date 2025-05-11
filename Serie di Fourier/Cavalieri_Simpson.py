@@ -18,7 +18,7 @@ def cavalieri_simpson(a, b, f):
     return I
 
 """
- Esempio di utilizzo:
+#Esempio di utilizzo:
 def my_function(x):
     return x**2
 

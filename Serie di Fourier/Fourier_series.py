@@ -10,7 +10,6 @@ from Cavalieri_Simpson_composito import cavalieri_simpson_composito
 #        first  the coefficient  of the constant function
 #        second the coefficients of k   cosine   functions
 #        third  the coefficients of k   sine     functions
-#TODO fix integer limit
 def fourier_series(f, p, n):
 
     coefficients = np.zeros(1 + 2 * n)
