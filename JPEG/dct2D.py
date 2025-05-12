@@ -25,11 +25,17 @@ def idct_2D(c_mat):
     # Applica IDCT per righe
     f_mat = (D.T @ f_mat.T).T
 
-    return c_mat
+    return f_mat
 
 
 if __name__ == "__main__":
     N = 4
     f_mat = np.random.rand(N, N)
     c_mat = dct_2D(f_mat)
+    f_mat_new = idct_2D(c_mat)
+
+    print(f_mat)
+    print()
     print(c_mat)
+    print()
+    print(f_mat_new)
