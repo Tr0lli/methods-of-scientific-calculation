@@ -30,7 +30,10 @@ def bar3_plot(matrix, title_str, position=None):
 
 def generate_matrix(N, param=0.3):
     """Genera la matrice f_mat, basata sulla funzione segnata."""
-    f = lambda x, y: np.sign(x - 0.5) * np.sign(y - 0.5)  # Funzione esempio
+    # f = lambda x, y: np.sign(x - 0.5) * np.sign(y - 0.5)
+    f = lambda x, y: np.exp(-(x ** 2 + y ** 2) / (2 * param ** 2)) # Funzione esempio
+    # f = lambda x, y: 1
+    
     f_mat = np.zeros((N, N))
 
     for j in range(N):
@@ -46,29 +49,26 @@ def launcher(N=8, param=0.3):
     f_mat = generate_matrix(N, param)
 
     # Visualizzazione della matrice originale
-    plt.figure(1)
     bar3_plot(f_mat, 'Original bidimensional array f')
-    plt.show()
 
     # Calcolo della DCT 2D
     c_mat = dct_2D(f_mat)
-    plt.figure(2)
     bar3_plot(np.abs(c_mat), 'DCT of the original bidimensional f')
-    plt.show()
 
     # Troncamento delle frequenze
     c_mat_reduced = c_mat.copy()
-    c_mat_reduced[ceil(N * param):, ceil(N * param):] = 0
-
-    plt.figure(3)
+    k = int(np.ceil(N * param))  # converti in intero
+    c_mat_reduced[k:, k:] = 0
     bar3_plot(np.abs(c_mat_reduced), 'Truncated frequencies')
-    plt.show()
 
     # Ricostruzione tramite IDCT 2D
     f_mat_reduced = idct_2D(c_mat_reduced)
-    plt.figure(4)
     bar3_plot(f_mat_reduced, 'Bidimensional array corresponding to truncated frequencies')
+
+    # Mostra tutte le figure contemporaneamente
     plt.show()
+
+
 
 if __name__ == '__main__':
     N = 8  # Puoi cambiare la dimensione della matrice se necessario
