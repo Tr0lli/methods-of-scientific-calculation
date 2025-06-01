@@ -5,10 +5,10 @@ from Metodi_matrici_triangolari import triang_inf, triang_sup
 from Fattorizzazione_LU_pivoting import fattorizzazione_LU_pivoting
 
 def metodo_potenze(A, q0, tol, nmax):
-    global nu, qnew
     nit = 0
     err = 1
     qold = q0
+    nu = np.conj(qold) @ A @ qold
 
     start_time = time.time()
     while err > tol and nit < nmax:
@@ -21,7 +21,7 @@ def metodo_potenze(A, q0, tol, nmax):
 
     elapsed_time = time.time() - start_time
 
-    return qnew, nu, elapsed_time, err
+    return qold, nu, elapsed_time, err
 
 def metodo_potenze_inv(A, q0, nmax, tol):
     nit = 0
